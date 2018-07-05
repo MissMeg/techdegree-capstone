@@ -10,7 +10,7 @@
 ```
 
 
-# Wedding Website
+# Chosen Topic: Wedding Website
 
 
 In this final, "Capstone" project, you'll bring together everything you've learned to create your own web application. You'll need to build all aspects of the site including an interactive front end. On the backend you'll manage data with a database and talk to at least two other web sites by connecting to their APIs. Finally, you'll host this site on the web so the world can see your finished, running web application.
