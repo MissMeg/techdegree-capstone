@@ -12,7 +12,6 @@
 
 # Chosen Topic: Wedding Website
 
-
 ## Description
 
 
@@ -21,7 +20,7 @@ In this final, "Capstone" project, you'll bring together everything you've learn
 You can build this project using any of the technologies you've learned so far such as React, and the MEAN stack, a relational database like MySQL, a document-based database like MongoDB, Bootstrap, jQuery, Express, and Node. Please don't use backend frameworks that we haven't taught in the Techdegree, such as Koa, Sails, or Meteor. You can use any front end libraries and frameworks.
 
 
-#### Requirements
+## Requirements
 
 
 - Sign up for hosting: Heroku and mLab (my choices)
@@ -46,7 +45,7 @@ You can build this project using any of the technologies you've learned so far s
 - Check your project for cross browser compatibility.
 
 
-#### Extra Credit
+## Extra Credit
 
 
 - Use more than two APIs in your app
