@@ -3,39 +3,42 @@
 // load modules
 const express = require('express');
 const mongoose = require('mongoose');
-const routes = require('./routes');
+const routes = require('./js/routes');
+const keys = require('./config.js');
 
 const app = express();
 
 //Database Connection
-// const db = mongoose.connection;
-// mongoose.connect('mongodb://127.0.0.1/myapp');
-// db.on('error', console.error.bind(console, 'Database connection error:'));
-// db.once('open', console.log.bind(console, 'Database connection established.'));
+mongoose.connect(`mongodb://${keys.mlabUser}:${keys.mlabPass}@ds129821.mlab.com:29821/wedding-website`, {useMongoClient: true});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, "connection error:"));
+db.once('open', console.log.bind(console, 'DB connection established.'));
 
+app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({extended: false }));
 app.use('', routes);
 
 // set our port
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 3000);
 
 // setup our static route to serve files from the "public" folder
 app.use('/', express.static('public'));
 
-// catch 404 and forward to global error handler
-app.use(function(req, res, next) {
-  let err = new Error('File Not Found');
-  err.status = 404;
-  next(err);
+//404 error
+app.use((req, res, next) => {
+    let err = new Error('File Not Found');
+    err.status = 404;
+    next(err);
 });
 
-// Express's global error handler
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500).json({
-    message: err.message,
-    error: {}
-  });
+//error page
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 // start listening on our port
