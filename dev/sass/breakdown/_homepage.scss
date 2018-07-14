@@ -1,10 +1,24 @@
-h1 {
-  font-family: 'Pinyon Script', cursive;
+//navigation
+.navbar {
+  button {
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    &:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .fas {
+      padding-top: 5px;
+      color: grey;
+      &:hover {
+        color: $pale-pink;
+      }
+    }
+  }
 }
 
-span, p, a, li {
-  font-family: 'Cantata One', serif;
-}
 .nav-link {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -13,6 +27,30 @@ span, p, a, li {
   width: 32rem;
 }
 
+.navbar, #footer {
+  a {
+    color: grey;
+    &:hover {
+      &:nth-child(even){
+        color: $pale-pink;
+      }
+      &:nth-child(odd) {
+        color: $green;
+      }
+    }
+  }
+}
+
+//text styling across site
+h1 {
+  font-family: 'Pinyon Script', cursive;
+}
+
+span, p, a, li {
+  font-family: 'Cantata One', serif;
+}
+
+//homepage styling
 #headerImg {
   background-image: url('/static/content/floral.png');
   background-repeat: no-repeat;
@@ -27,20 +65,6 @@ span, p, a, li {
   span {
     font-size: 37.5px;
     padding-right: 20px;
-  }
-}
-
-.navbar, #footer {
-  a {
-    color: grey;
-    &:hover {
-      &:nth-child(even){
-        color: $pale-pink;
-      }
-      &:nth-child(odd) {
-        color: $green;
-      }
-    }
   }
 }
 
@@ -69,12 +93,18 @@ span, p, a, li {
     height: auto;
     width: 70px;
   }
+  p {
+    margin-bottom: 2rem;
+  }
   #story {
     text-align: justify;
     padding-left: 100px;
     padding-right: 100px;
     margin-bottom: 10rem;
     margin-top: 5rem;
+    p {
+      margin-bottom: 1rem;
+    }
   }
 }
 

@@ -1,0 +1,17 @@
+#photos {
+  text-align: center;
+  margin-top: 5rem 1.5rem;
+  img {
+    width: 500px;
+    height: auto;
+    margin: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  #photos {
+    img {
+      width: 200px;
+    }
+  }
+}
