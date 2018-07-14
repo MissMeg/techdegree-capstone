@@ -12,4 +12,8 @@ router.get('/photos', (req, res) => {
   res.render('photos', {title: 'Photos | RoberDola Wedding 2019'});
 });
 
+router.get('/events', (req, res) => {
+  res.render('events', {title: 'Events | RoberDola Wedding 2019'});
+});
+
 module.exports = router;

@@ -89,10 +89,6 @@ span, p, a, li {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  img {
-    height: auto;
-    width: 70px;
-  }
   p {
     margin-bottom: 2rem;
   }
@@ -106,6 +102,10 @@ span, p, a, li {
       margin-bottom: 1rem;
     }
   }
+}
+
+.floral {
+  @include tiny-floral;
 }
 
 @media (max-width: 992px){

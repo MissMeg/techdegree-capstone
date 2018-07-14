@@ -1,6 +1,17 @@
 #photos {
   text-align: center;
   margin-top: 5rem 1.5rem;
+  h1 {
+    margin-top: 4rem;
+  }
+  .tiny-floral {
+    @include tiny-floral;
+    text-align: center;
+    img {
+      margin-top: 0rem !important;
+      margin-bottom: 0rem !important;
+    }
+  }
   img {
     width: 500px;
     height: auto;
