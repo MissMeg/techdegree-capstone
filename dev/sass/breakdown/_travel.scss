@@ -1,0 +1,12 @@
+#travel {
+  @include heading;
+}
+
+#travel-details {
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  .row {
+    margin-top: 6rem;
+  }
+}

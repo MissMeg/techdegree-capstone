@@ -3,10 +3,6 @@
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
-  .sub-head {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 20px;
-  }
   .party-row {
     margin-top: 6rem;
     margin-bottom: 4rem;
@@ -17,9 +13,11 @@
   }
 }
 
+.sub-head {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 25px;
+}
+
 #party-title {
-  text-align: center;
-  .party-title {
-    margin-top: 6rem;
-  }
+  @include heading;
 }
