@@ -1,0 +1,25 @@
+#party-container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  .sub-head {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 20px;
+  }
+  .party-row {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+  .party-photos {
+    width: 300px;
+    height: auto;
+  }
+}
+
+#party-title {
+  text-align: center;
+  .party-title {
+    margin-top: 6rem;
+  }
+}

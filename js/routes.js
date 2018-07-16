@@ -16,4 +16,20 @@ router.get('/events', (req, res) => {
   res.render('events', {title: 'Events | RoberDola Wedding 2019'});
 });
 
+router.get('/party', (req, res) => {
+  res.render('weddingparty', {title: 'Wedding Party | RoberDola Wedding 2019'});
+});
+
+router.get('/travel', (req, res) => {
+  res.render('travel', {title: 'Travel | RoberDola Wedding 2019'});
+});
+
+router.get('/gifts', (req, res) => {
+  res.render('gifts', {title: 'Gifts | RoberDola Wedding 2019'});
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {title: 'Login | RoberDola Wedding 2019'});
+});
+
 module.exports = router;
