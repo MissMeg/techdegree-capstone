@@ -52,17 +52,25 @@ span, p, a, li {
 
 //homepage styling
 #headerImg {
+  text-decoration: none;
   background-image: url('/static/content/floral.png');
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
   height: 150px;
   margin-bottom: 1.25rem;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
   h1 {
+    color: black;
     font-size: 75px;
     padding-top: 40px;
   }
   span {
+    color: black;
     font-size: 37.5px;
     padding-right: 20px;
   }

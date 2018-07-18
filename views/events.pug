@@ -9,16 +9,12 @@ body
     )
   div#events-list.container-fluid
     div.row
-      div.col
+      div.col-lg#details-col.align-self-center
         h1 Rehersal Dinner
-        p TBD
-    div.row
-      div.col
+        p TBD in late 2018
         h1 Photos
         p Loose Park Rose Garden
-        p Time TBD
-    div.row
-      div.col
+        p Time TBD in late 2018
         h1 Wedding Ceremony & Reception
         p Boulevard Brewing Company | Muehlebach Suite
         p 2501 Southwest Blvd, Kansas City, MO 64108
@@ -28,4 +24,7 @@ body
           li 7:00 pm Dinner
           li 10:15pm Open Bar Ends
           li 10:30pm Event Ends (After Party at Power and Light)
+      div.col-lg.align-self-center
+        div#map-events
   include includes/footer
+include includes/google_maps_events

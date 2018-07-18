@@ -2,8 +2,10 @@
 
 const mongoose    = require('mongoose');
 const express     = require('express');
+const keys        = require('../config.js');
 const router      = express.Router();
 
+//Get routes for each page
 router.get('/', (req, res) => {
   res.render('index', {title: 'RoberDola Wedding 2019'});
 });
@@ -13,15 +15,11 @@ router.get('/photos', (req, res) => {
 });
 
 router.get('/events', (req, res) => {
-  res.render('events', {title: 'Events | RoberDola Wedding 2019'});
+  res.render('events', {title: 'Events | RoberDola Wedding 2019', key: keys.google_maps_api_key});
 });
 
 router.get('/party', (req, res) => {
   res.render('weddingparty', {title: 'Wedding Party | RoberDola Wedding 2019'});
-});
-
-router.get('/travel', (req, res) => {
-  res.render('travel', {title: 'Travel | RoberDola Wedding 2019'});
 });
 
 router.get('/gifts', (req, res) => {

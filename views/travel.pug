@@ -9,10 +9,84 @@ body
     )
   div#travel-details.container-fluid
     div.row.justify-content-center
-      div.col.align-self-center
-        p.sub-head Hotel Accomodations
-        p TBD
-    div.row.justify-content-center
+      div.col-lg.align-self-center
+        h1 Hotel Accomodations
+        p TBD in August 2018
+      div.col-lg.align-self-center
+        if sky == 'Cloudy'
+          p.fas.fa-cloud.fa-5x
+        else if sky == 'Sunny'
+          p.fas.fa-sun.fa-5x
+        else if sky == 'Rainy'
+          p.fas.fa-umbrella.fa-5x
+        else if sky == 'Rain'
+          p.fas.fa-umbrella.fa-5x
+        else if sky == 'Clear'
+          p.fas.fa-sun.fa-5x
+        else if sky == 'Showers'
+          p.fas.fa-umbrella.fa-5x
+        else
+          p.fas.fa-sun.fa-5x
+        p Current Temperature: #{temp}F
+        p Humidity: #{humidity}
+        p Wind: #{wind}
+    div#cityGuide.row.justify-content-center
       div.col.algin-self-center
-        p.sub-head City Guide
+        h1 City Guide
+        div.container-fluid
+          i.fas.fa-utensils.fa-5x
+          div.row
+            div.col-lg
+              p Lidia's
+              p 101 W 22nd St., Kansas City, MO
+              p (816) 221 - 3722
+              p
+                a(
+                  href="http://www.lidias-kc.com"
+                ) www.lidias-kc.com
+            div.col-lg
+              p Jack Stack BBQ
+              p 101 W 22nd St., Suite 300, Kansas City, MO
+              p (816) 472 - 7427
+              p
+                a(
+                  href="http://www.jackstackbbq.com"
+                ) www.jackstackbbq.com
+          i.fas.fa-building.fa-5x
+          div.row
+            div.col-lg
+              p Union Station
+              p 30 W Pershing Rd., Kansas City, MO
+              p (816) 460 - 2020
+              p
+                a(
+                  href="http://www.unionstation.org"
+                ) www.unionstation.org
+            div.col-lg
+              p Nelson-Atkins Museum
+              p 4525 Oak St., Kansas City, MO
+              p (816) 751 - 1278
+              p
+                a(
+                  href="http://www.nelson-atkins.org"
+                ) www.nelson-atkins.org
+          i.fas.fa-beer.fa-5x
+          div.row
+            div.col-lg
+              p Pawn and Pint
+              p 613 Walnut St., Kansas City, MO
+              p (816) 701 - 9227
+              p
+                a(
+                  href="http://www.pawnandpint.com"
+                ) www.pawnandpint.com
+            div.col-lg
+              p Julep
+              p 4141 Pennsylvania Ave., Suite 104, Kansas City, MO
+              p (816) 216 - 7000
+              p
+                a(
+                  href="http://www.julepkc.com"
+                ) www.julepkc.com
+          
   include includes/footer

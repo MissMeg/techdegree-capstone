@@ -1,10 +1,10 @@
 'use strict';
 
 // load modules
-const express   = require('express');
-const mongoose  = require('mongoose');
-const routes    = require('./js/routes.js');
-const keys      = require('./config.js');
+const express           = require('express');
+const mongoose          = require('mongoose');
+const routes            = require('./js');
+const keys              = require('./config.js');
 
 const app = express();
 
@@ -14,10 +14,12 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', console.log.bind(console, 'DB connection established.'));
 
+//settings
 app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({extended: false }));
-app.use('/', routes);
+app.use('/', routes.basics);
+app.use('/', routes.travel);
 
 // set our port
 app.set('port', process.env.PORT || 3000);

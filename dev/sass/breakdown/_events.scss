@@ -1,3 +1,16 @@
+#events-list {
+  width: 80%;
+  margin-bottom: 6rem;
+  h1 {
+    margin-top: 6rem;
+  }
+}
+
 #events {
   @include heading;
+}
+
+#map-events {
+  height: 300px;
+  width: 100%;
 }

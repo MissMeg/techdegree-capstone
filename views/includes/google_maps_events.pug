@@ -1,0 +1,20 @@
+script.
+  //google maps api connection (can only happen in browser)
+  // Initialize and add the map
+  function initMap() {
+    // The location
+    let location = {lat: 39.100588, lng: -94.582257};
+    let boulevard = {lat: 39.082326, lng: -94.596558};
+    let roseGarden = {lat: 39.033759, lng: -94.595343};
+    // The map, centered at given location
+    let map = new google.maps.Map(
+    document.getElementById('map-events'), {zoom: 11, center: location});
+    // The marker, positioned at given location
+    let marker1 = new google.maps.Marker({position: boulevard, map: map});
+    let marker2 = new google.maps.Marker({position: roseGarden, map: map});
+  }
+script(
+  async='', 
+  defer='', 
+  src= 'https://maps.googleapis.com/maps/api/js?key='+ key +'&callback=initMap'
+)
