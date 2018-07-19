@@ -1,2 +1,17 @@
-p= message
-p= error
+include includes/header
+body
+  include includes/navbar
+  div#error.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        iframe.mx-auto.giphy-embed(
+          src=gif 
+          width="480" 
+          height="480" 
+          frameBorder="0" 
+          allowFullScreen
+        )
+          p
+            a(href='https://giphy.com/gifs/ah-pissed-off-son-of-a-bitch-qiiEJt7U7UCmA') via GIPHY
+        h1 Oh boy! There's been an error!
+        p= message

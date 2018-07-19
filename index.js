@@ -5,6 +5,7 @@ const express           = require('express');
 const mongoose          = require('mongoose');
 const routes            = require('./js');
 const keys              = require('./config.js');
+const giphy             = require( 'giphy' )( keys.giphy_api_key );
 
 const app = express();
 
@@ -36,11 +37,14 @@ app.use((req, res, next) => {
 
 //error page
 app.use((err, req, res, next) => {
+  //connection to the giphy api to get the error gif
+  giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
-        error: {}
+        gif: result.data.embed_url
     });
+  });
 });
 
 // start listening on our port
