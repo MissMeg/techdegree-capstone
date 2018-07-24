@@ -1,0 +1,87 @@
+include includes/header
+body
+  include includes/navbar
+  div.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        form#login(
+          method='POST'
+          action='login'
+        )
+          fieldset
+            legend Choose a User
+            div
+              input(
+                type="radio" 
+                id="lou" 
+                name="user"
+                value="Lou"
+              ) 
+              label(
+                for="lou"
+              ) Lou
+            div
+              input(
+                type="radio" 
+                id="sandy" 
+                name="user"
+                value="Sandy"
+              ) 
+              label(
+                for="sandy"
+              ) Sandy
+            div
+              input(
+                type="radio" 
+                id="belinda" 
+                name="user"
+                value="Belinda"
+              ) 
+              label(
+                for="belinda"
+              ) Belinda
+            div
+              input(
+                type="radio" 
+                id="john" 
+                name="user"
+                value="John"
+              ) 
+              label(
+                for="john"
+              ) John
+            div
+              input(
+                type="radio" 
+                id="danny" 
+                name="user"
+                value="Danny"
+              ) 
+              label(
+                for="danny"
+              ) Danny
+            div
+              input(
+                type="radio" 
+                id="meg" 
+                name="user"
+                value="Meg"
+              ) 
+              label(
+                for="meg"
+              ) Meg
+          label(
+            for='loginInput'
+          ) Secret Passcode:
+          input(
+            type='password'
+            id='loginInput' 
+            name='secrectCode'
+            pattern='[A-Za-z\s]+'
+            placeholder='Enter Code'
+            autocomplete='on'
+            required
+          )
+          button.btn(
+            type="submit"
+          )  Submit

@@ -6,6 +6,8 @@ const mongoose          = require('mongoose');
 const routes            = require('./js');
 const keys              = require('./config.js');
 const giphy             = require( 'giphy' )( keys.giphy_api_key );
+const session           = require('express-session');
+const MongoStore        = require('connect-mongo')(session);
 
 const app = express();
 
@@ -15,13 +17,29 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', console.log.bind(console, 'DB connection established.'));
 
+// use sessions
+app.use(session({
+  secret: keys.secret_key,
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
+
+//make userID available in templates
+app.use( (req, res, next) => {
+  res.locals.currentUser = req.session.userId;
+  next();
+});
+
 //settings
 app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({extended: false }));
 app.use('/', routes.basics);
 app.use('/', routes.travel);
-
+app.use('/', routes.login);
 // set our port
 app.set('port', process.env.PORT || 3000);
 

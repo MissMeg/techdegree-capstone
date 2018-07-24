@@ -19,4 +19,7 @@ div.container-fluid
           a#wedWidth.nav-link.col-lg.align-self-center(href='party') Wedding Party
           a.nav-link.col-lg.align-self-center(href='travel') Travel
           a#giftWidth.nav-link.col-lg.align-self-center(href='gifts') Gift Registry
-          a.nav-link.col-lg.align-self-center(href='login') Login
+          if session
+            a.nav-link.col-lg.align-self-center(href='login') Logout
+          else
+            a.nav-link.col-lg.align-self-center(href='login') Login
