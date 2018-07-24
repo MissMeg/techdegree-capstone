@@ -42,20 +42,20 @@ router.get('/guests', (req, res, next) => {
           if (err) {
             return next(err);
           } else {
-            return res.render('guests', {title: 'Guests | RoberDola Wedding 2019', name: user.name, session: req.session.userId});
+            return res.render('guests', {title: 'Guests | RoberDola Wedding 2019', name: user.name});
           }
         });
   }
 });
 
 router.get('/logout', (req, res, next) => {
-  if( req.session ) {
+  if( req.session || req.session.userId) {
     //delete session
     req.session.destroy( (err) => {
       if (err) {
         return next (err);
       } else {
-        return res.redirect(302, 'index');
+        return res.redirect(302, '/');
       }
     });
   }
