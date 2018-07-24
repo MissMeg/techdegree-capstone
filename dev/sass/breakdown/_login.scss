@@ -1,0 +1,22 @@
+#loginPage {
+  width: 80%;
+  #login {
+    text-align: center;
+    margin-top: 6rem;
+    #form-radios {
+      .row {
+        margin-top: 2rem;
+        label {
+          margin-left: 1rem;
+        }
+      }
+    }
+    #form-password {
+      margin-top: 3rem;
+      input {
+        text-align: center;
+        margin-right: 2rem;
+      }
+    }
+  }
+}
