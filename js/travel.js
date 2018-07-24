@@ -2,7 +2,6 @@
 
 const mongoose    = require('mongoose');
 const express     = require('express');
-const keys        = require('../config.js');
 const weather     = require('weather-js');
 const router      = express.Router();
 

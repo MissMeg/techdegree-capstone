@@ -40,6 +40,8 @@ app.use(express.urlencoded({extended: false }));
 app.use('/', routes.basics);
 app.use('/', routes.travel);
 app.use('/', routes.login);
+app.use('/', routes.guest);
+
 // set our port
 app.set('port', process.env.PORT || 3000);
 
