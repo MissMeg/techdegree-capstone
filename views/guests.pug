@@ -1,5 +1,51 @@
 include includes/header
 body
   include includes/navbar
-  h1 Hello
-    span= name
+  div#guests-header.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        h1 Hello
+          span= name
+          include includes/edit_self_modal
+      div.col.align-self-center
+        input(
+          type='text'
+          id='searchGuests' 
+          name='search'
+          pattern='[A-Za-z\s]+'
+          placeholder='Search'
+        )
+        button.btn(
+          type="submit"
+        )
+          i.fa.fa-search
+    div.row.justify-content-center
+      div.col.align-self-center
+        include includes/new_guest_modal
+  div#guests-data.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        p Group/Family
+      div.col.align-self-center
+        p Name
+      div.col.align-self-center
+        p Confirmed
+      div.col.align-self-center
+        p Child
+      div.col.align-self-center
+        p Notes
+    each group in groups
+      div.row.justify-content-center
+        div.col.align-self-center
+          p= group.groupName
+      each member in group.members
+        div.row.justify-content-center
+          div.col.align-self-center
+          div.col.align-self-center
+            p #{member.firstName} #{member.lastName}
+          div.col.align-self-center
+            p= member.confirmed
+          div.col.align-self-center
+            p= member.child
+          div.col.align-self-center
+            p= member.notes

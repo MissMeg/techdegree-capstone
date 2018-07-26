@@ -1,0 +1,112 @@
+button.btn(
+  type="button"
+  data-toggle="modal"
+  data-target="#newGuestModal"
+)
+  i.far.fa-plus-square New Guest
+div.modal.fade#newGuestModal(
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+)
+  div.modal-dialog(role="document")
+    div.modal-content
+      div.modal-header
+        h1 Add Guest
+        button.close(
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        )
+          span(aria-hidden="true") &times;
+      div.modal-body
+        form#newGuest(
+          method="POST"
+          action="/newguest"
+        )
+          div.container-fluid
+            div.row.justify-content-center
+              div.col.align-self-center
+                input(
+                  type='text'
+                  id='firstName' 
+                  name='firstName'
+                  pattern='[A-Za-z\s]+'
+                  placeholder='First Name'
+                  required
+                )
+              div.col.align-self-center
+                input(
+                  type='text'
+                  id='lastName' 
+                  name='lastName'
+                  pattern='[A-Za-z\s]+'
+                  placeholder='Last Name'
+                  required
+                )
+            div#groupSelect.row.justify-content-center
+              div.col.align-self-center
+                label(for="group-select") Choose an existing group or family:
+                select#group-select(name="groupName")
+                  option(value="Choose") Choose a Group/Family
+                  each group in groups
+                    option(value=group.groupName) #{group.groupName}
+              div.col.align-self-center
+                p Or
+              div.col.align-self-center
+                label(for="newGroup") Create a new group/family:
+                input(
+                  type="text"
+                  id='newGroup' 
+                  name='newGroup'
+                  pattern='[A-Za-z\s]+'
+                  placeholder='Group/Family Name'
+                )
+            div#childYN.row.justify-content-center
+              div.col.align-self-center
+                fieldset
+                  legend Is this guest a child?
+                  input(
+                    type="radio"
+                    id="childY"
+                    name="childY"
+                  )
+                  label(for="childY") Yes
+                  input(
+                    type="radio"
+                    id="childN"
+                    name="childN"
+                  )
+                  label(for="childN") No
+            div#confirmYN.row.justify-content-center
+              div.col.align-self-center
+                fieldset
+                  legend Has this guest confirmed attendance?
+                  input(
+                    type="radio"
+                    id="confirmY"
+                    name="confirmY"
+                  )
+                  label(for="confirmY") Yes
+                  input(
+                    type="radio"
+                    id="confirmN"
+                    name="confirmN"
+                  )
+                  label(for="confirmN") No
+            div#notes.row.justify-content-center
+              div.col.align-self-center
+                label(for="notes") Notes:
+                textarea(
+                  id="notes" 
+                  name="notes"
+                  rows="3"
+                  cols="50"
+                  maxlength="200"
+                  wrap="hard"
+                  placeholder="Only 200 Characters"
+                )
+            div#group-submit.row.justify-content-center.modal-footer
+              div.col.align-self-center
+                button.btn(type="submit") Submit       

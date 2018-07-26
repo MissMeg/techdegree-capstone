@@ -17,6 +17,11 @@
         text-align: center;
         margin-right: 2rem;
       }
+      button {
+        &:hover {
+          background-color: $pale-pink;
+        }
+      }
     }
   }
 }
