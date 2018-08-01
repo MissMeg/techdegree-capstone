@@ -21,6 +21,23 @@ div.modal.fade#editSelfModal(
         )
           span(aria-hidden="true") &times;
       div.modal-body
-        p form here
-      div.modal-footer
-        button.btn(type="submit") Submit
+        form#newPassword(
+          method="POST"
+          action="/newpassword"
+        )
+          input(
+            type='password'
+            name='newPasswordCheck'
+            placeholder='New Password'
+            autocomplete='on'
+            required
+          )
+          input(
+            type='password'
+            name='newPassword'
+            placeholder='Confirm New Password'
+            autocomplete='on'
+            required
+          )
+          div.modal-footer
+            button.btn(type="submit") Submit

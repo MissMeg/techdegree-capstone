@@ -29,8 +29,7 @@ div.modal.fade#newGuestModal(
             div.row.justify-content-center
               div.col.align-self-center
                 input(
-                  type='text'
-                  id='firstName' 
+                  type='text' 
                   name='firstName'
                   pattern='[A-Za-z\s]+'
                   placeholder='First Name'
@@ -39,13 +38,12 @@ div.modal.fade#newGuestModal(
               div.col.align-self-center
                 input(
                   type='text'
-                  id='lastName' 
                   name='lastName'
                   pattern='[A-Za-z\s]+'
                   placeholder='Last Name'
                   required
                 )
-            div#groupSelect.row.justify-content-center
+            div.groupSelect.row.justify-content-center
               div.col.align-self-center
                 label(for="group-select") Choose an existing group or family:
                 select#group-select(name="groupName")
@@ -58,48 +56,42 @@ div.modal.fade#newGuestModal(
                 label(for="newGroup") Create a new group/family:
                 input(
                   type="text"
-                  id='newGroup' 
                   name='newGroup'
                   pattern='[A-Za-z\s]+'
                   placeholder='Group/Family Name'
                 )
-            div#childYN.row.justify-content-center
+            div.childYN.row.justify-content-center
               div.col.align-self-center
                 fieldset
                   legend Is this guest a child?
                   input(
                     type="radio"
-                    id="childY"
                     name="childY"
                   )
                   label(for="childY") Yes
                   input(
                     type="radio"
-                    id="childN"
                     name="childN"
                   )
                   label(for="childN") No
-            div#confirmYN.row.justify-content-center
+            div.confirmYN.row.justify-content-center
               div.col.align-self-center
                 fieldset
                   legend Has this guest confirmed attendance?
                   input(
                     type="radio"
-                    id="confirmY"
                     name="confirmY"
                   )
                   label(for="confirmY") Yes
                   input(
                     type="radio"
-                    id="confirmN"
                     name="confirmN"
                   )
                   label(for="confirmN") No
-            div#notes.row.justify-content-center
+            div.notes.row.justify-content-center
               div.col.align-self-center
                 label(for="notes") Notes:
                 textarea(
-                  id="notes" 
                   name="notes"
                   rows="3"
                   cols="50"
@@ -107,6 +99,6 @@ div.modal.fade#newGuestModal(
                   wrap="hard"
                   placeholder="Only 200 Characters"
                 )
-            div#group-submit.row.justify-content-center.modal-footer
+            div.group-submit.row.justify-content-center.modal-footer
               div.col.align-self-center
                 button.btn(type="submit") Submit       
