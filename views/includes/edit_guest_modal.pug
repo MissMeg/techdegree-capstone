@@ -1,151 +1,117 @@
-button.btn(
-  type="button"
-  data-toggle="modal"
-  data-target="#editGuestModal"
-)
-  i.fas.fa-edit
-div.modal.fade#editGuestModal(
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
-)
-  div.modal-dialog(role="document")
-    div.modal-content
-      div.modal-header
-        h1 Edit Guest
-        button.close(
-          type="button"
-          data-dismiss="modal"
-          aria-label="Close"
-        )
-          span(aria-hidden="true") &times;
-      div.modal-body
-        form.editGuest(
-          method="POST"
-          action="/editguest"
-        )
-          div.container-fluid
-            div.row.justify-content-center
-              div.col.align-self-center
-                input(
-                  type='text'
-                  name='firstName'
-                  pattern='[A-Za-z\s]+'
-                  placeholder='First Name'
-                  value=member.firstName
-                  required
-                )
-              div.col.align-self-center
-                input(
-                  type='text'
-                  name='lastName'
-                  pattern='[A-Za-z\s]+'
-                  placeholder='Last Name'
-                  value=member.lastName
-                  required
-                )
-            div.groupSelect.row.justify-content-center
-              p *Leave empty if no group/family changes are needed.
-              div.col.align-self-center
-                label(for="group-select") Choose a group or family:
-                  select.group-select(name="groupName")
-                    option(value="Choose") Choose a Group/Family
-                    each group in groups
-                      option(
-                        value=group.groupName
-                      ) #{group.groupName}
-              div.col.align-self-center
-                p Or
-              div.col.align-self-center
-                label(for="newGroup") Create a new group/family:
-                input(
-                  type="text"
-                  name='newGroup'
-                  pattern='[A-Za-z\s]+'
-                  placeholder='Group/Family Name'
-                )
-            div.childYN.row.justify-content-center
-              div.col.align-self-center
-                fieldset
-                  legend Is this guest a child?
-                  if member.child
-                    input(
-                      type="radio"
-                      name="childY"
-                      checked
-                    )
-                    label(for="childY") Yes
-                    input(
-                      type="radio"
-                      name="childN"
-                    )
-                    label(for="childN") No
-                  else
-                    input(
-                      type="radio"
-                      name="childY"
-                    )
-                    label(for="childY") Yes
-                    input(
-                      type="radio"
-                      name="childN"
-                      checked
-                    )
-                    label(for="childN") No
-            div.confirmYN.row.justify-content-center
-              div.col.align-self-center
-                fieldset
-                  legend Has this guest confirmed attendance?
-                  if member.confirmed
-                    input(
-                      type="radio"
-                      name="confirmY"
-                      checked
-                    )
-                    label(for="confirmY") Yes
-                    input(
-                      type="radio"
-                      name="confirmN"
-                    )
-                    label(for="confirmN") No
-                  else
-                    input(
-                      type="radio"
-                      name="confirmY"
-                    )
-                    label(for="confirmY") Yes
-                    input(
-                      type="radio"
-                      name="confirmN"
-                      checked
-                    )
-                    label(for="confirmN") No
-            div.notes.row.justify-content-center
-              div.col.align-self-center
-                label(for="notes") Notes:
-                textarea(
-                  name="notes"
-                  rows="3"
-                  cols="50"
-                  maxlength="200"
-                  wrap="hard"
-                  value=member.notes
-                  placeholder="Only 200 Characters"
-                )
-                input(
-                  type='text'
-                  name='id'
-                  placeholder='Guest Id'
-                  value=member._id
-                  readonly
-                )
-                input(
-                  type='text'
-                  name='groupid'
-                  placeholder='Group Id'
-                  value=member.group
-                  readonly
-                )
-          div.modal-footer
-            button.btn(type="submit") Submit
+.collapse.row.editguest(id=member._id)
+  .card.card-body
+    h1 Edit Guest
+    p - #{member.firstName} #{member.lastName} -
+    form.editGuest(
+      method="POST"
+      action="/editguest"
+    )
+      p *Leave empty if no group/family changes are needed.
+      label(for="group-select") Choose a group or family:
+        select.group-select(name="groupName")
+          option(value="Choose") Choose a Group/Family
+          each group in groups
+            option(
+              value=group.groupName
+            ) #{group.groupName}
+      p Or
+      label(for="newGroup") Create a new group/family:
+      input(
+        type="text"
+        name='newGroup'
+        pattern='[A-Za-z\s]+'
+        placeholder='Group/Family Name'
+      )
+      input(
+        type='text'
+        name='firstName'
+        pattern='[A-Za-z\s]+'
+        placeholder='First Name'
+        value=member.firstName
+        required
+      )
+      input(
+        type='text'
+        name='lastName'
+        pattern='[A-Za-z\s]+'
+        placeholder='Last Name'
+        value=member.lastName
+        required
+      )
+      fieldset
+        legend Has this guest confirmed attendance?
+        if member.confirmed
+          input(
+            type="radio"
+            name="confirmY"
+            checked
+          )
+          label(for="confirmY") Yes
+          input(
+            type="radio"
+            name="confirmN"
+          )
+          label(for="confirmN") No
+        else
+          input(
+            type="radio"
+            name="confirmY"
+          )
+          label(for="confirmY") Yes
+          input(
+            type="radio"
+            name="confirmN"
+            checked
+          )
+          label(for="confirmN") No
+      fieldset
+        legend Is this guest a child?
+        if member.child
+          input(
+            type="radio"
+            name="childY"
+            checked
+          )
+          label(for="childY") Yes
+          input(
+            type="radio"
+            name="childN"
+          )
+          label(for="childN") No
+        else
+          input(
+            type="radio"
+            name="childY"
+          )
+          label(for="childY") Yes
+          input(
+            type="radio"
+            name="childN"
+            checked
+          )
+          label(for="childN") No
+      label(for="notes") Notes:
+      textarea(
+        name="notes"
+        rows="3"
+        cols="50"
+        maxlength="200"
+        wrap="hard"
+        value=member.notes
+        placeholder="Only 200 Characters"
+      )
+      input(
+        type='text'
+        name='id'
+        placeholder='Guest Id'
+        value=member._id
+        readonly
+      )
+      input(
+        type='text'
+        name='groupid'
+        placeholder='Group Id'
+        value=member.group
+        readonly
+      )
+      button.btn(type="submit") Submit

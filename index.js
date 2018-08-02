@@ -24,7 +24,8 @@ app.use(session({
   saveUninitialized: false,
   store: new MongoStore({
     mongooseConnection: db
-  })
+  }),
+  expires: new Date(Date.now() + (8.64e+7))
 }));
 
 //make userID available in templates

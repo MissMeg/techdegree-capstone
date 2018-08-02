@@ -7,13 +7,13 @@ body
         h1 Hello
           span= name
           include includes/edit_self_modal
-      div.col.align-self-center
+      div#search.col.align-self-center
         input(
           type='text'
           id='searchGuests' 
           name='search'
           pattern='[A-Za-z\s]+'
-          placeholder='Search'
+          placeholder='Search Guests'
         )
         button.btn(
           type="submit"
@@ -34,8 +34,9 @@ body
         p Child
       div.col.align-self-center
         p Notes
+      div.col.align-self-center
     each group in groups
-      div.row.justify-content-center
+      div.row.justify-content-center.group
         div.col.align-self-center
           p= group.groupName
       each member in group.members
@@ -49,6 +50,38 @@ body
             p= member.child
           div.col.align-self-center
             p= member.notes
-          div.col.align-self-center
-            include includes/edit_guest_modal
-            include includes/delete_guest_modal
+          div.col.align-self-center.edit-delete
+            p
+              a.btn( 
+                data-toggle="collapse" 
+                href="#" + member._id
+                role="button" 
+                aria-expanded="false" 
+                aria-controls="collapseExample"
+              )
+                i.fas.fa-edit
+            p
+              a.btn( 
+                data-toggle="collapse" 
+                href="#delete" + member._id
+                role="button" 
+                aria-expanded="false" 
+                aria-controls="collapseExample"
+              )
+                i.fas.fa-trash-alt
+        include includes/edit_guest_modal
+        include includes/delete_guest_modal
+  div#data-footer.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        p Total Guests: 
+          span#total-guests
+      div.col.align-self-center
+        p Confirmed Guests:
+          span#confirmed-Guests
+      div.col.align-self-center
+        p Unconfirmed Guests:
+          span#unconfirmed-Guests
+      div.col.align-self-center
+        p Number of Kids:
+          span#kids-guests
