@@ -40,8 +40,10 @@ $(document).ready(() => {
     let search = $('#search input').val();
     let returnedGuests = $(`.guest:contains('${search}')`);
     $('#search input').val('');
+    $('.group').show();
     $('.guest').hide();
     if (returnedGuests[0] === undefined) {
+      $('.group').hide();
       $('#guests-data').append('<div id="none" class="row justify-content-center"> No guest found.</div>');
     } else {
       returnedGuests.show();
