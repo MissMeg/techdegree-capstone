@@ -9,6 +9,7 @@ const router      = express.Router();
 router.get('/travel', (req, res, next) => {
   //weather api Connection
   weather.find({search: 'Kansas City, MO', degreeType: 'F'}, function(err, result) {
+    console.log(result[0]);
     if(err) next(err);
     let currentTemp = result[0].current.temperature;
     let currentSkyText = result[0].current.skytext;
@@ -20,7 +21,6 @@ router.get('/travel', (req, res, next) => {
     } else {
       currentSky = currentSky[0];
     }
-    console.log(currentSky);
     res.render('travel', {title: 'Travel | RoberDola Wedding 2019', temp: currentTemp, sky: currentSky, humidity: currentHumidity, wind: currentWind});
   });
 });
