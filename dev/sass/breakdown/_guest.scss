@@ -1,0 +1,198 @@
+#guests-header {
+  overflow: hidden;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  span {
+    font-family: 'Cantata One', serif;
+    font-size: 25px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #edit-self-btn {
+    padding: 2px 4px;
+    &:hover {
+      background-color: $pale-pink;
+    }
+    .fa-edit {
+      font-size: 12px;
+    }
+  }
+  #secondary-header {
+    text-align: center;
+    margin-top: 1rem;
+    #new-guest-btn, #search button{
+      &:hover {
+        background-color: $pale-pink;
+      }
+    }
+    #new-guest-btn {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  #search {
+    input {
+      padding: 2px 4px;
+    }
+    button {
+      padding: 2px 4px;
+      margin-left: 20px;
+    }
+  }
+}
+
+#guests-data {
+  width: 90%;
+  margin-bottom: 3rem;
+  .group, .guest {
+    margin-top: 2rem;
+  }
+  .edit-delete {
+    width: 50px;
+    p {
+      &:nth-child(odd) {
+        float: left;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: grey;
+      &:hover {
+        color: $pale-pink;
+      }
+    }
+  }
+}
+
+#data-footer {
+  margin-bottom: 2rem;
+  text-align: center;
+  .row {
+    font-size: 14px;
+    background-color: $green;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    span {
+      padding-left: 1rem;
+    }
+  }
+}
+
+
+#newGuestModal {
+  h1 {
+    padding-left: 1rem;
+    padding-top: .5rem;
+    font-size: 25px;
+  }
+  .groupSelect {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+  .childYN, .confirmYN {
+    text-align: left;
+    label {
+      padding-left: 1rem;
+      padding-right: 2rem;
+    }
+  }
+  .notes {
+    text-align: left;
+    width: 90%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .btn {
+    &:hover {
+      background-color: $pale-pink;
+    }
+  }
+}
+
+
+#editSelfModal {
+  font-size: 24px;
+  input {
+    font-family: 'Cantata One', serif;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  button {
+    font-family: 'Cantata One', serif;
+    &:hover {
+      background-color: $pale-pink;
+    }
+  }
+}
+
+
+.edit {
+  form {
+    margin-top: 1rem;
+    select {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .group-new-name {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .first-name-input {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .last-name-input {
+      margin-left: 1rem;
+    }
+    fieldset {
+      legend {
+        font-size: 16px;
+        font-family: 'Cantata One', serif;
+        margin-bottom: 1rem;
+      }
+      label {
+        padding-left: 1rem;
+        padding-right: 2rem;
+      }
+    }
+    .notes {
+      display: block;
+      margin-bottom: 2rem;
+      width: 80%;
+    }
+    .id-hide {
+      display: none;
+    }
+    .btn {
+      font-family: 'Cantata One', serif;
+      &:hover {
+        background-color: $pale-pink;
+      }
+    }
+  }
+}
+
+.deleteGuest {
+  .last-name-input {
+    margin-left: 1rem;
+  }
+  .id-hide {
+    display: none;
+  }
+  button {
+    display: block;
+    margin-top: 2rem;
+    font-family: 'Cantata One', serif;
+    &:hover {
+      background-color: $pale-pink;
+    }
+  }
+}

@@ -3,10 +3,15 @@ body
   include includes/navbar
   div#guests-header.container-fluid
     div.row.justify-content-center
+      div.col
       div.col.align-self-center
         h1 Hello
           span= name
           include includes/edit_self_modal
+      div.col
+    div#secondary-header.row.justify-content-center
+      div#new-guest-col.col.align-self-center
+        include includes/new_guest_modal
       div#search.col.align-self-center
         input(
           type='text'
@@ -19,9 +24,6 @@ body
           type="submit"
         )
           i.fa.fa-search
-    div.row.justify-content-center
-      div.col.align-self-center
-        include includes/new_guest_modal
   div#guests-data.container-fluid
     div.row.justify-content-center
       div.col.align-self-center
@@ -85,3 +87,4 @@ body
       div.col.align-self-center
         p Number of Kids:
           span#kids-guests
+  include includes/footer

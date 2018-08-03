@@ -1,4 +1,4 @@
-.collapse.row.editguest(id=member._id)
+.collapse.row.editguest(id=member._id).edit
   .card.card-body
     h1 Edit Guest
     p - #{member.firstName} #{member.lastName} -
@@ -16,13 +16,13 @@
             ) #{group.groupName}
       p Or
       label(for="newGroup") Create a new group/family:
-      input(
+      input.group-new-name(
         type="text"
         name='newGroup'
         pattern='[A-Za-z\s]+'
         placeholder='Group/Family Name'
       )
-      input(
+      input.first-name-input(
         type='text'
         name='firstName'
         pattern='[A-Za-z\s]+'
@@ -30,7 +30,7 @@
         value=member.firstName
         required
       )
-      input(
+      input.last-name-input(
         type='text'
         name='lastName'
         pattern='[A-Za-z\s]+'
@@ -91,7 +91,7 @@
           )
           label(for="childN") No
       label(for="notes") Notes:
-      textarea(
+      textarea.notes(
         name="notes"
         rows="3"
         cols="50"
@@ -100,14 +100,14 @@
         value=member.notes
         placeholder="Only 200 Characters"
       )
-      input(
+      input.id-hide(
         type='text'
         name='id'
         placeholder='Guest Id'
         value=member._id
         readonly
       )
-      input(
+      input.id-hide(
         type='text'
         name='groupid'
         placeholder='Group Id'
