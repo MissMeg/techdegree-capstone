@@ -53,7 +53,7 @@ div.modal.fade#newGuestModal(
                     option(value=group.groupName) #{group.groupName}
               div.col.align-self-center
                 p Or
-              div.col.align-self-center
+              div#new-group-create.col.align-self-center
                 label(for="newGroup") Create a new group/family:
                 input(
                   type="text"
@@ -73,6 +73,7 @@ div.modal.fade#newGuestModal(
                   input(
                     type="radio"
                     name="childN"
+                    checked
                   )
                   label(for="childN") No
             div.confirmYN.row.justify-content-center
@@ -87,6 +88,7 @@ div.modal.fade#newGuestModal(
                   input(
                     type="radio"
                     name="confirmN"
+                    checked
                   )
                   label(for="confirmN") No
             div.notes.row.justify-content-center

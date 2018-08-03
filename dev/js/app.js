@@ -80,8 +80,5 @@ $(document).ready(() => {
   $('#newPassword input').keyup(() => {
     checkPasswords();
   });
-
-
-  //Add more validation to
-
+  
 });
