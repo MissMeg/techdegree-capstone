@@ -60,4 +60,28 @@ $(document).ready(() => {
     }
   });
 
+  //New Password Validation
+  const checkPasswords = () => {
+    let pass1 = $('#new-password').val();
+    let pass2 = $('#new-password-check').val();
+    if ( pass1 == pass2 ) {
+      $('#new-password-check').removeClass('alert-danger');
+      $('#new-password').addClass('alert-success');
+      $('#new-password-check').addClass('alert-success');
+      $('#newPassword button').css('cursor', 'pointer');
+      $('#newPassword button').prop('disabled', false);
+    } else {
+      $('#new-password-check').addClass('alert-danger');
+      $('#newPassword button').css('cursor', 'not-allowed');
+      $('#newPassword button').prop('disabled', true);
+    }
+  };
+
+  $('#newPassword input').keyup(() => {
+    checkPasswords();
+  });
+
+
+  //Add more validation to
+
 });

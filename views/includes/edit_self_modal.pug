@@ -25,14 +25,14 @@ div.modal.fade#editSelfModal(
           method="POST"
           action="/newpassword"
         )
-          input(
+          input#new-password(
             type='password'
             name='newPasswordCheck'
             placeholder='New Password'
             autocomplete='on'
             required
           )
-          input(
+          input#new-password-check(
             type='password'
             name='newPassword'
             placeholder='Confirm New Password'

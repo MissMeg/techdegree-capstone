@@ -17,6 +17,11 @@
     .fa-edit {
       font-size: 12px;
     }
+    }
+    .close {
+      &:hover {
+        background-color: white;
+      }
   }
   #secondary-header {
     text-align: center;
