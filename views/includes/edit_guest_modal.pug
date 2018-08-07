@@ -42,54 +42,62 @@
         legend Has this guest confirmed attendance?
         if member.confirmed
           input(
+            id='confirmY' + member._id
             type="radio"
             name="confirmY"
             checked="checked"
           )
-          label(for="confirmY") Yes
+          label(for='confirmY' + member._id) Yes
           input(
+            id='confirmN' + member._id
             type="radio"
             name="confirmN"
           )
-          label(for="confirmN") No
+          label(for='confirmN' + member._id) No
         else
           input(
+            id='confirmY' + member._id
             type="radio"
             name="confirmY"
           )
-          label(for="confirmY") Yes
+          label(for='confirmY' + member._id) Yes
           input(
+            id='confirmN' + member._id
             type="radio"
             name="confirmN"
             checked="checked"
           )
-          label(for="confirmN") No
+          label(for='confirmN' + member._id) No
       fieldset
         legend Is this guest a child?
         if member.child
           input(
+            id='confirmY' + member._id
             type="radio"
             name="childY"
             checked="checked"
           )
-          label(for="childY") Yes
+          label(for='confirmY' + member._id) Yes
           input(
+            id='confirmN' + member._id
             type="radio"
             name="childN"
           )
-          label(for="childN") No
+          label(for='confirmN' + member._id) No
         else
           input(
+            id='confirmY' + member._id
             type="radio"
             name="childY"
           )
-          label(for="childY") Yes
+          label(for='confirmY' + member._id) Yes
           input(
+            id='confirmN' + member._id
             type="radio"
             name="childN"
             checked="checked"
           )
-          label(for="childN") No
+          label(for='confirmN' + member._id) No
       label(for="notes") Notes:
       textarea.notes(
         name="notes"
