@@ -11,76 +11,38 @@ body
           fieldset#form-radios
             legend Choose a User
             div.row
-              div.col
-                input(
-                  type="radio" 
-                  id="lou" 
-                  name="user"
-                  value="Lou"
-                ) 
-                label(
-                  for="lou"
-                ) Lou
-              div.col
-                input(
-                  type="radio" 
-                  id="sandy" 
-                  name="user"
-                  value="Sandy"
-                ) 
-                label(
-                  for="sandy"
-                ) Sandy
-              div.col
-                input(
-                  type="radio" 
-                  id="belinda" 
-                  name="user"
-                  value="Belinda"
-                ) 
-                label(
-                  for="belinda"
-                ) Belinda
+              div.col-sm
+                a#newUser(
+                  href='createuser'
+                )
+                  i.far.fa-plus-square 
+                    span Add User
             div.row
-              div.col
-                input(
-                  type="radio" 
-                  id="john" 
-                  name="user"
-                  value="John"
-                ) 
-                label(
-                  for="john"
-                ) John
-              div.col
-                input(
-                  type="radio" 
-                  id="danny" 
-                  name="user"
-                  value="Danny"
-                ) 
-                label(
-                  for="danny"
-                ) Danny
-              div.col
-                input(
-                  type="radio" 
-                  id="meg" 
-                  name="user"
-                  value="Meg"
-                ) 
-                label(
-                  for="meg"
-                ) Meg
-          div#form-password
-            input(
-              type='password'
-              id='loginInput' 
-              name='secrectCode'
-              placeholder='Password'
-              autocomplete='on'
-              required
-            )
-            button.btn(
-              type="submit"
-            )  Submit
+              if users[0] === undefined
+                div.col
+                  p Please create a user.
+              else
+                each user in users
+                  div.col-sm
+                    input(
+                      type="radio" 
+                      id=user.name
+                      name="user"
+                      value=user.name
+                    ) 
+                    label(
+                      for=user.name
+                    ) #{user.name}
+          if users[0] !== undefined
+            div#form-password
+              input(
+                type='password'
+                id='loginInput' 
+                name='secrectCode'
+                placeholder='Password'
+                autocomplete='on'
+                required
+              )
+              button.btn(
+                type="submit"
+              )  Submit

@@ -5,9 +5,16 @@ const express     = require('express');
 const User        = require('../models/user');
 const router      = express.Router();
 
-router.get('/login', (req, res) => {
-  res.render('login', {title: 'Login | RoberDola Wedding 2019'});
+router.get('/login', (req, res, next) => {
+  User.find({}, (err, users) => {
+    if (err) {
+      return next(err);
+    } else {
+      res.render('login', {title: 'Login | RoberDola Wedding 2019', users: users});
+    }
+  });
 });
+
 
 router.post('/login', (req, res, next) => {
   //users already created with hashed passwords
@@ -39,6 +46,27 @@ router.get('/logout', (req, res, next) => {
         return next (err);
       } else {
         return res.redirect(302, '/');
+      }
+    });
+  }
+});
+
+
+////////////ONLY FOR TESTING/GRADING PURPOSES///////////
+//This will be removed for production since only a few poeple should have access to the guest list
+//No one will be able to create a user to access the guest list
+router.get('/createuser', (req, res) => {
+  res.render('createuser', {title: 'Create User | RoberDola Wedding 2019'});
+});
+
+router.post('/createuser', (req, res, next) => {
+  if (req.body.name && req.body.password) {
+    User.create({name: req.body.name, password: req.body.password}, (err, user) => {
+      if(err) {
+        return next(err);
+      } else {
+        req.session.userId = user._id;
+        return res.redirect(302, 'guests');
       }
     });
   }

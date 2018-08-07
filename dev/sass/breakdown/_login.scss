@@ -3,6 +3,13 @@
   #login {
     text-align: center;
     margin-top: 6rem;
+    #newUser {
+      text-decoration: none;
+      color: black;
+      &:hover {
+        color: $pale-pink;
+      }
+    }
     #form-radios {
       .row {
         margin-top: 2rem;
@@ -22,6 +29,22 @@
           background-color: $pale-pink;
         }
       }
+    }
+  }
+}
+
+#createUserPage {
+  text-align: center;
+  form {
+    margin-top: 4rem;
+    .password {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+  button {
+    &:hover {
+      background-color: $pale-pink;
     }
   }
 }

@@ -1,0 +1,31 @@
+include includes/header
+body
+  include includes/navbar
+  div#createUserPage.container-fluid
+    div.row.justify-content-center
+      div.col.align-self-center
+        form.create-user(
+          method="POST"
+          action="/createuser"
+        )
+          div.container-fluid
+            div.row.justify-content-center
+              div.col.align-self-center
+                input.name(
+                  type='text'
+                  name='name'
+                  pattern='[A-Za-z\s]+'
+                  placeholder='Name'
+                  required
+                )
+                input.password(
+                  type='password'
+                  name='password'
+                  placeholder='Password'
+                  required
+                )
+            div.row.justify-content-center
+              div.col.align-self-center
+                button.btn(
+                  type="submit"
+                )  Submit
