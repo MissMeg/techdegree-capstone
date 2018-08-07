@@ -72,32 +72,32 @@
         legend Is this guest a child?
         if member.child
           input(
-            id='confirmY' + member._id
+            id='childY' + member._id
             type="radio"
             name="childY"
             checked
           )
-          label(for='confirmY' + member._id) Yes
+          label(for='childY' + member._id) Yes
           input(
-            id='confirmN' + member._id
+            id='childN' + member._id
             type="radio"
             name="childN"
           )
-          label(for='confirmN' + member._id) No
+          label(for='childN' + member._id) No
         else
           input(
-            id='confirmY' + member._id
+            id='childY' + member._id
             type="radio"
             name="childY"
           )
-          label(for='confirmY' + member._id) Yes
+          label(for='childY' + member._id) Yes
           input(
-            id='confirmN' + member._id
+            id='childN' + member._id
             type="radio"
             name="childN"
             checked
           )
-          label(for='confirmN' + member._id) No
+          label(for='childN' + member._id) No
       label(for="notes") Notes:
       textarea.notes(
         name="notes"
