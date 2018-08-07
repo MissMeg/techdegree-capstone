@@ -12,6 +12,35 @@
 
 # Chosen Topic: Wedding Website
 
+## Grading/Testing Locally Requirements
+
+
+In order to grade/test this project you will need to complete the following steps:
+- Either create a free account or login to your mLab account.
+- Create a free MongoDB sandbox db in mLab
+- Use the given MongoDb URI - Find 'To connect using a driver via the standard MongoDB URI:' towards the top of the page after creating the new sandbox.
+- Replace '@ds129821.mlab.com:29821/wedding-website' in the index.js file with your new db URI. Full code looks like this:
+```
+mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
+```
+- API Keys you will need to get:
+  - Google Maps API Key
+  - Giphy API Key
+- Create a config file and replace the process.env keys (used for Heroku) on the index.js file and the one for google maps on the routes.js file inside the js folder with the appropriate key. Ex: process.env.mlabPass changes to keys.mlabPass
+```
+const keys = {
+    mlabPass: 'passwordHere',
+    mlabUser: 'usernameHere',
+    google_maps_api_key: 'keyHere',
+    giphy_api_key: 'keyHere',
+    secret_key: 'chooseYourOwnSecretHere'
+}
+
+module.exports = keys;
+```
+- After those steps are complete make sure to use npm install before running the project locally
+
+
 ## Description
 
 
@@ -49,6 +78,9 @@ You can build this project using any of the technologies you've learned so far s
 
 
 - Use more than two APIs in your app
+  - Google Maps
+  - Weather API
+  - Giphy
 - Write custom CSS to layout and style your app further than the default Bootstrap style
 - Use HTML5 validation to make sure that required fields are filled out and input is formatted correctly
 - Write unit tests for your code using Mocha.js and an assertion library like Chai
