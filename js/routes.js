@@ -2,7 +2,7 @@
 
 const mongoose    = require('mongoose');
 const express     = require('express');
-const keys        = require('../config.js');
+// const keys        = require('../config.js');
 const router      = express.Router();
 
 //Get routes for each page

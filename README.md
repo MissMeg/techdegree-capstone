@@ -38,6 +38,7 @@ const keys = {
 
 module.exports = keys;
 ```
+- Uncomment the requiring of the config file on those two pages
 - After those steps are complete make sure to use npm install before running the project locally
 
 
