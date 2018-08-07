@@ -12,10 +12,9 @@ const MongoStore        = require('connect-mongo')(session);
 
 const app = express();
 
-console.log(process.env.mlabUser);
 
 //Database Connection
-mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website?authMechanism=MONGODB-CR`, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', console.log.bind(console, 'DB connection established.'));
