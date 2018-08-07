@@ -18,6 +18,7 @@
 In order to grade/test this project you will need to complete the following steps:
 - Either create a free account or login to your mLab account.
 - Create a free MongoDB sandbox db in mLab
+- Open the new database and click on users to create a new one (this will be the mlabUser and mlabPass)
 - Use the given MongoDb URI - Find 'To connect using a driver via the standard MongoDB URI:' towards the top of the page after creating the new sandbox.
 - Replace '@ds129821.mlab.com:29821/wedding-website' in the index.js file with your new db URI. Full code looks like this:
 ```
