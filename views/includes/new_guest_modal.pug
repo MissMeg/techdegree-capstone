@@ -68,13 +68,16 @@ div.modal.fade#newGuestModal(
                   input(
                     id="childY"
                     type="radio"
-                    name="childY"
+                    value='Yes'
+                    name="child"
                   )
                   label(for="childY") Yes
                   input(
                     id="childN"
                     type="radio"
-                    name="childN"
+                    name="child"
+                    value='No'
+                    checked
                   )
                   label(for="childN") No
             div.confirmYN.row.justify-content-center
@@ -84,13 +87,16 @@ div.modal.fade#newGuestModal(
                   input(
                     id="confirmY"
                     type="radio"
-                    name="confirmY"
+                    name="confirm"
+                    value='Yes'
                   )
                   label(for="confirmY") Yes
                   input(
                     id="confirmN"
                     type="radio"
-                    name="confirmN"
+                    name="confirm"
+                    value='No'
+                    checked
                   )
                   label(for="confirmN") No
             div.notes.row.justify-content-center

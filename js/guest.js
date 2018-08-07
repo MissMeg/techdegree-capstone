@@ -48,14 +48,14 @@ router.post('/newguest', (req, res, next) => {
     let notes = req.body.notes;
     let user = req.session.userId;
     let isChild, isConfirm, confirmDate, guestData;
-    if (req.body.childY === 'on') {
+    if (req.body.child === 'Yes') {
       isChild = true;
-    } else if (req.body.childN === 'on'){
+    } else if (req.body.child === 'No'){
       isChild = false;
     }
-    if (req.body.confirmY === 'on') {
+    if (req.body.confirm === 'Yes') {
       isConfirm = true;
-    } else if (req.body.confirmN === 'on'){
+    } else if (req.body.confirm === 'No'){
       isConfirm = false;
     }
     if (isConfirm) {

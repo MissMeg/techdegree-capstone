@@ -80,5 +80,5 @@ $(document).ready(() => {
   $('#newPassword input').keyup(() => {
     checkPasswords();
   });
-  
+
 });

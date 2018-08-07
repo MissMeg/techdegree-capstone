@@ -66,14 +66,14 @@ router.post('/editguest', (req, res, next) => {
             let lname = req.body.lastName;
             let notes = req.body.notes;
             let isChild, isConfirm, confirmDate, guestData;
-            if (req.body.childY === 'on') {
+            if (req.body.child === 'Yes') {
               isChild = true;
-            } else if (req.body.childN === 'on'){
+            } else if (req.body.child === 'No'){
               isChild = false;
             }
-            if (req.body.confirmY === 'on') {
+            if (req.body.confirm === 'Yes') {
               isConfirm = true;
-            } else if (req.body.confirmN === 'on'){
+            } else if (req.body.confirm === 'No'){
               isConfirm = false;
             }
             //add confirm date if they have confirmed
@@ -151,14 +151,14 @@ router.post('/editguest', (req, res, next) => {
                                 let lname = req.body.lastName;
                                 let notes = req.body.notes;
                                 let isChild, isConfirm, confirmDate, guestData;
-                                if (req.body.childY === 'on') {
+                                if (req.body.child === 'Yes') {
                                   isChild = true;
-                                } else if (req.body.childN === 'on'){
+                                } else if (req.body.child === 'No'){
                                   isChild = false;
                                 }
-                                if (req.body.confirmY === 'on') {
+                                if (req.body.confirm === 'Yes') {
                                   isConfirm = true;
-                                } else if (req.body.confirmN === 'on'){
+                                } else if (req.body.confirm === 'No'){
                                   isConfirm = false;
                                 }
                                 if (isConfirm) {
@@ -222,14 +222,14 @@ router.post('/editguest', (req, res, next) => {
                                                 let lname = req.body.lastName;
                                                 let notes = req.body.notes;
                                                 let isChild, isConfirm, confirmDate, guestData;
-                                                if (req.body.childY === 'on') {
+                                                if (req.body.child === 'Yes') {
                                                   isChild = true;
-                                                } else if (req.body.childN === 'on'){
+                                                } else if (req.body.child === 'No'){
                                                   isChild = false;
                                                 }
-                                                if (req.body.confirmY === 'on') {
+                                                if (req.body.confirm === 'Yes') {
                                                   isConfirm = true;
-                                                } else if (req.body.confirmN === 'on'){
+                                                } else if (req.body.confirm === 'No'){
                                                   isConfirm = false;
                                                 }
                                                 if (isConfirm) {
@@ -291,14 +291,14 @@ router.post('/editguest', (req, res, next) => {
                             let lname = req.body.lastName;
                             let notes = req.body.notes;
                             let isChild, isConfirm, confirmDate, guestData;
-                            if (req.body.childY === 'on') {
+                            if (req.body.child === 'Yes') {
                               isChild = true;
-                            } else if (req.body.childN === 'on'){
+                            } else if (req.body.child === 'No'){
                               isChild = false;
                             }
-                            if (req.body.confirmY === 'on') {
+                            if (req.body.confirm === 'Yes') {
                               isConfirm = true;
-                            } else if (req.body.confirmN === 'on'){
+                            } else if (req.body.confirm === 'No'){
                               isConfirm = false;
                             }
                             if (isConfirm) {
@@ -361,14 +361,14 @@ router.post('/editguest', (req, res, next) => {
                                             let lname = req.body.lastName;
                                             let notes = req.body.notes;
                                             let isChild, isConfirm, confirmDate, guestData;
-                                            if (req.body.childY === 'on') {
+                                            if (req.body.child === 'Yes') {
                                               isChild = true;
-                                            } else if (req.body.childN === 'on'){
+                                            } else if (req.body.child === 'No'){
                                               isChild = false;
                                             }
-                                            if (req.body.confirmY === 'on') {
+                                            if (req.body.confirm === 'Yes') {
                                               isConfirm = true;
-                                            } else if (req.body.confirmN === 'on'){
+                                            } else if (req.body.confirm === 'No'){
                                               isConfirm = false;
                                             }
                                             if (isConfirm) {
