@@ -6,6 +6,7 @@ const User        = require('../models/user');
 const router      = express.Router();
 
 router.get('/login', (req, res, next) => {
+  //find all users for loggin in
   User.find({}, (err, users) => {
     if (err) {
       return next(err);
@@ -17,9 +18,9 @@ router.get('/login', (req, res, next) => {
 
 
 router.post('/login', (req, res, next) => {
-  //users already created with hashed passwords
-    //since the page is not open to everyone
+  //amke sure both fields are present
   if ( req.body.secrectCode && req.body.user ) {
+    //authenticate the user
     User.authenticate(req.body.user, req.body.secrectCode, (err, user) => {
       if (err || !user) {
         //cannot be wrong user since there are only the set 6
@@ -27,6 +28,7 @@ router.post('/login', (req, res, next) => {
         err.status = 401;
         return next(err);
       } else {
+        //set session
         req.session.userId = user._id;
         return res.redirect(302, 'guests');
       }
@@ -38,6 +40,7 @@ router.post('/login', (req, res, next) => {
   }
 });
 
+//logout current user
 router.get('/logout', (req, res, next) => {
   if( req.session || req.session.userId) {
     //delete session
@@ -54,17 +57,20 @@ router.get('/logout', (req, res, next) => {
 
 ////////////ONLY FOR TESTING/GRADING PURPOSES///////////
 //This will be removed for production since only a few poeple should have access to the guest list
-//No one will be able to create a user to access the guest list
+//No one will be able to create a user to access the guest list in final product (after grading)
 router.get('/createuser', (req, res) => {
   res.render('createuser', {title: 'Create User | RoberDola Wedding 2019'});
 });
 
 router.post('/createuser', (req, res, next) => {
+  //make sure elements exist
   if (req.body.name && req.body.password) {
+    //create a new user
     User.create({name: req.body.name, password: req.body.password}, (err, user) => {
       if(err) {
         return next(err);
       } else {
+        //create session and redirect
         req.session.userId = user._id;
         return res.redirect(302, 'guests');
       }

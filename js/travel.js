@@ -9,7 +9,7 @@ const router      = express.Router();
 router.get('/travel', (req, res, next) => {
   //weather api Connection
   weather.find({search: 'Kansas City, MO', degreeType: 'F'}, function(err, result) {
-    console.log(result[0]);
+    //set variables from api results
     if(err) next(err);
     let currentTemp = result[0].current.temperature;
     let currentSkyText = result[0].current.skytext;

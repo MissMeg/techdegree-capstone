@@ -8,16 +8,19 @@ const Guest        = require('../models/guest');
 const router      = express.Router();
 
 router.get('/guests', (req, res, next) => {
+  //make sure user is logged in
   if (!req.session.userId) {
     let err = new Error('You must be logged in to view the guests page.');
     err.status = 401;
     return next(err);
   } else {
+    //find the user
     User.findById(req.session.userId)
         .exec((err, user) => {
           if (err) {
             return next(err);
           } else {
+            //populate the groups for appearing on the page
             Group.find()
                 .populate('members')
                 .exec((err, groups) => {
@@ -33,11 +36,13 @@ router.get('/guests', (req, res, next) => {
 });
 
 router.post('/newguest', (req, res, next) => {
+  //make sure user is logged in
   if (!req.session.userId) {
     let err = new Error('You must be logged in to add to the guest list.');
     err.status = 401;
     return nest(err);
   } else {
+    //create new guest
     let fname = req.body.firstName;
     let lname = req.body.lastName;
     let notes = req.body.notes;
@@ -77,12 +82,11 @@ router.post('/newguest', (req, res, next) => {
       if (err) {
         return next(err);
       } else {
-        console.log('guest created');
         if ( req.body.groupName !== 'Choose' && req.body.newGroup !== '') {
           let err = new Error('Please either choose a current group or create a new one. Both is not an option :)')
         } else {
           if (req.body.groupName !== "Choose") {
-            console.log('is part of current group');
+            //add to a current group
             Group.findOneAndUpdate(
               {groupName: req.body.groupName},
               {$push: {members: guest._id}})
@@ -90,7 +94,6 @@ router.post('/newguest', (req, res, next) => {
                   if (err) {
                     return next(err);
                   } else {
-                    console.log('group found and member added');
                     Guest.findOneAndUpdate(
                       {_id: guest._id},
                       {group: group._id})
@@ -98,20 +101,18 @@ router.post('/newguest', (req, res, next) => {
                             if (err) {
                               return next(err);
                             } else {
-                              console.log('guest found and updated');
                               res.redirect(302, 'guests');
                             }
                     });
                   }
             });
           } else {
-            console.log('guest is part of a new group');
             Group.findOne({groupName: req.body.newGroup}, (err, group) => {
               if (err) {
                 return next(err);
               }
               if (!group) {
-                console.log('no previous group name listed');
+                //add to a new group
                 Group.create({groupName: req.body.newGroup}, (err, group) => {
                   if (err) {
                     return next (err);
@@ -123,7 +124,6 @@ router.post('/newguest', (req, res, next) => {
                             if (err) {
                               return next(err);
                             } else {
-                              console.log('guest found and updated');
                               Group.findOneAndUpdate(
                                 {_id: group._id},
                                 {$push: {members: guest._id}})
@@ -150,6 +150,5 @@ router.post('/newguest', (req, res, next) => {
   }
 });
 
-//return res.render('guests', {title: 'Guests | RoberDola Wedding 2019', name: user.name});
-//res.redirect(302, 'guests');
+
 module.exports = router;

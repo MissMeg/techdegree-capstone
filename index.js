@@ -5,6 +5,7 @@
 const express           = require('express');
 const mongoose          = require('mongoose');
 const routes            = require('./js');
+//UNCOMMENT for local runs with config file
 // const keys              = require('./config.js');
 const giphy             = require( 'giphy' )( process.env.giphy_api_key );
 const session           = require('express-session');

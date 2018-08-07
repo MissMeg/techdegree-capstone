@@ -5,13 +5,16 @@ const express     = require('express');
 const User        = require('../models/user');
 const router      = express.Router();
 
+
 router.post('/newpassword', (req, res, next) => {
   if (!req.session.userId) {
     let err = new Error('You must be logged in to add to the guest list.');
     err.status = 401;
     return next(err);
   } else {
+    //make sure passwords match
     if ( req.body.newPassword === req.body.newPasswordCheck ) {
+      //update user with new password
       User.findOneAndUpdate({_id: req.session.userId}, {password: req.body.newPassword})
           .exec((err, user) => {
             if (err) {
