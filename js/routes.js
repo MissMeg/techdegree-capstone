@@ -15,7 +15,7 @@ router.get('/photos', (req, res) => {
 });
 
 router.get('/events', (req, res) => {
-  res.render('events', {title: 'Events | RoberDola Wedding 2019', key: keys.google_maps_api_key});
+  res.render('events', {title: 'Events | RoberDola Wedding 2019', key: process.env.keys.google_maps_api_key});
 });
 
 router.get('/party', (req, res) => {

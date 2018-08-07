@@ -5,21 +5,21 @@ const express           = require('express');
 const mongoose          = require('mongoose');
 const routes            = require('./js');
 const keys              = require('./config.js');
-const giphy             = require( 'giphy' )( keys.giphy_api_key );
+const giphy             = require( 'giphy' )( process.env.keys.giphy_api_key );
 const session           = require('express-session');
 const MongoStore        = require('connect-mongo')(session);
 
 const app = express();
 
 //Database Connection
-mongoose.connect(`mongodb://${keys.mlabUser}:${keys.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.keys.mlabUser}:${process.env.keys.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', console.log.bind(console, 'DB connection established.'));
 
 // use sessions
 app.use(session({
-  secret: keys.secret_key,
+  secret: process.env.keys.secret_key,
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
