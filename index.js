@@ -1,6 +1,5 @@
 'use strict';
 
-console.log(process.env);
 
 // load modules
 const express           = require('express');
@@ -15,14 +14,14 @@ const app = express();
 
 
 //Database Connection
-mongoose.connect(`mongodb://${process.env.keys.mlabUser}:${process.env.keys.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', console.log.bind(console, 'DB connection established.'));
 
 // use sessions
 app.use(session({
-  secret: process.env.keys.secret_key,
+  secret: process.env.secret_key,
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
