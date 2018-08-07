@@ -21,12 +21,12 @@ In order to grade/test this project you will need to complete the following step
 - Use the given MongoDb URI - Find 'To connect using a driver via the standard MongoDB URI:' towards the top of the page after creating the new sandbox.
 - Replace '@ds129821.mlab.com:29821/wedding-website' in the index.js file with your new db URI. Full code looks like this:
 ```
-mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.keys.mlabUser}:${process.env.keys.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
 ```
 - API Keys you will need to get:
   - Google Maps API Key
   - Giphy API Key
-- Create a config file and replace the process.env keys (used for Heroku) on the index.js file and the one for google maps on the routes.js file inside the js folder with the appropriate key. Ex: process.env.mlabPass changes to keys.mlabPass
+- Create a config file and replace the process.env keys (used for Heroku) on the index.js file and the one for google maps on the routes.js file inside the js folder with the appropriate key. Ex: process.env.keys.mlabPass changes to keys.mlabPass
 ```
 const keys = {
     mlabPass: 'passwordHere',
