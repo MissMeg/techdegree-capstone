@@ -7,7 +7,7 @@ const express           = require('express');
 const mongoose          = require('mongoose');
 const routes            = require('./js');
 // const keys              = require('./config.js');
-const giphy             = require( 'giphy' )( process.env.keys.giphy_api_key );
+const giphy             = require( 'giphy' )( process.env.DATABASE_URL.keys.giphy_api_key );
 const session           = require('express-session');
 const MongoStore        = require('connect-mongo')(session);
 
