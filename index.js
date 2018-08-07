@@ -12,6 +12,7 @@ const MongoStore        = require('connect-mongo')(session);
 
 const app = express();
 
+console.log(process.env.mlabUser);
 
 //Database Connection
 mongoose.connect(`mongodb://${process.env.mlabUser}:${process.env.mlabPass}@ds129821.mlab.com:29821/wedding-website`, { useNewUrlParser: true });
