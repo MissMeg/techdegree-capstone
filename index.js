@@ -54,6 +54,22 @@ app.set('port', process.env.PORT || 3000);
 // setup our static route to serve files from the "public" folder
 app.use('/static', express.static('public'));
 
+//giphy middleware
+app.use( (req, res, next) => {
+  giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
+    if (err) {
+      return next(err);
+    } else {
+      if ( result.data.embed_url !== undefined ) {
+        res.locals.giphy = result.data.embed_url;
+        next();
+      } else {
+        next();
+      }
+    }
+  });
+);
+
 //404 error
 app.use((req, res, next) => {
     let err = new Error('File Not Found');
@@ -64,12 +80,10 @@ app.use((req, res, next) => {
 //error page
 app.use((err, req, res, next) => {
   //connection to the giphy api to get the error gif
-  giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        gif: result.data.embed_url
-    });
+  res.status(err.status || 500);
+  res.render('error', {
+      message: err.message,
+      gif: res.locals.giphy
   });
 });
 
