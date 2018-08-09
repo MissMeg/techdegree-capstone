@@ -66,12 +66,20 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   //connection to the giphy api to get the error gif
   giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
-    console.log(result.data);
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        gif: result.data.embed_url
-    });
+    console.log(result.data.embed_url);
+    if (result.data.embed_url !== undefined) {
+      res.status(err.status || 500);
+      res.render('error', {
+          message: err.message,
+          gif: result.data.embed_url
+      });
+    } else {
+      res.status(err.status || 500);
+      res.render('error', {
+          message: err.message,
+          gif: 'https://giphy.com/embed/qiiEJt7U7UCmA'
+      });
+    }
   });
 });
 
