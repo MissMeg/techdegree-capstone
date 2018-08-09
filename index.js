@@ -66,18 +66,11 @@ app.use((err, req, res, next) => {
   //connection to the giphy api to get the error gif
   giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
     if (err) return next(err);
-    if(result.data.embed_url !== undefined) {
-      res.status(err.status || 500);
-      res.render('error', {
-          message: err.message,
-          gif: result.data.embed_url
-      });
-    } else {
-      res.status(err.status || 500);
-      res.render('error', {
-          message: err.message
-      });
-    }
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        gif: result.data.embed_url
+    });
   });
 });
 
