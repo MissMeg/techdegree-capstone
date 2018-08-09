@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
   //connection to the giphy api to get the error gif
   giphy.gif( { id : [ 'qiiEJt7U7UCmA' ]}, (error, result) => {
     if (err) return next(err);
-    if(result.data) {
+    if(result.data.embed_url !== undefined) {
       res.status(err.status || 500);
       res.render('error', {
           message: err.message,
