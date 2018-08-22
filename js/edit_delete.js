@@ -31,18 +31,52 @@ router.post('/deleteguest', (req, res, next) => {
             if (err) {
               return next(err);
             }
-            //delete the guest
-            Guest.deleteOne({_id: guest._id}, (err) => {
+            //delete group if no members
+            Group.findById(req.body.groupid)
+            .exec((err, group) => {
               if (err) {
                 return next(err);
+              } else {
+                //if there are no members, then delete the group
+                if (group.members.length === 0) {
+                  Group.deleteOne({_id: group._id}, (err) => {
+                    if (err) {
+                      return next(err);
+                    } else {
+                      //delete the guest
+                      Guest.deleteOne({_id: guest._id}, (err) => {
+                        if (err) {
+                          return next(err);
+                        }
+                        res.redirect(302, 'guests');
+                      });
+                    }
+                  });
+                 }
+                //delete the guest
+                Guest.deleteOne({_id: guest._id}, (err) => {
+                  if (err) {
+                    return next(err);
+                  }
+                  res.redirect(302, 'guests');
+                });
               }
-              res.redirect(302, 'guests');
             });
           });
         });
     });
   }
 });
+
+//delete the guest
+Guest.deleteOne({_id: guest._id}, (err) => {
+  if (err) {
+    return next(err);
+  }
+  res.redirect(302, 'guests');
+});
+
+
 
 
 //edit guest
