@@ -58,24 +58,24 @@ router.get('/logout', (req, res, next) => {
 ////////////ONLY FOR TESTING/GRADING PURPOSES///////////
 //This will be removed for production since only a few poeple should have access to the guest list
 //No one will be able to create a user to access the guest list in final product (after grading)
-router.get('/createuser', (req, res) => {
-  res.render('createuser', {title: 'Create User | RoberDola Wedding 2019'});
-});
-
-router.post('/createuser', (req, res, next) => {
-  //make sure elements exist
-  if (req.body.name && req.body.password) {
-    //create a new user
-    User.create({name: req.body.name, password: req.body.password}, (err, user) => {
-      if(err) {
-        return next(err);
-      } else {
-        //create session and redirect
-        req.session.userId = user._id;
-        return res.redirect(302, 'guests');
-      }
-    });
-  }
-});
+// router.get('/createuser', (req, res) => {
+//   res.render('createuser', {title: 'Create User | RoberDola Wedding 2019'});
+// });
+//
+// router.post('/createuser', (req, res, next) => {
+//   //make sure elements exist
+//   if (req.body.name && req.body.password) {
+//     //create a new user
+//     User.create({name: req.body.name, password: req.body.password}, (err, user) => {
+//       if(err) {
+//         return next(err);
+//       } else {
+//         //create session and redirect
+//         req.session.userId = user._id;
+//         return res.redirect(302, 'guests');
+//       }
+//     });
+//   }
+// });
 
 module.exports = router;
