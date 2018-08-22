@@ -32,7 +32,7 @@ router.post('/deleteguest', (req, res, next) => {
               return next(err);
             }
             //delete group if no members
-            Group.findById(req.body.groupid)
+            Group.findById(group._id)
             .exec((err, group) => {
               if (err) {
                 return next(err);
