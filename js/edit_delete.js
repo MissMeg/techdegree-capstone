@@ -68,16 +68,6 @@ router.post('/deleteguest', (req, res, next) => {
   }
 });
 
-//delete the guest
-Guest.deleteOne({_id: guest._id}, (err) => {
-  if (err) {
-    return next(err);
-  }
-  res.redirect(302, 'guests');
-});
-
-
-
 
 //edit guest
 router.post('/editguest', (req, res, next) => {
